@@ -35,7 +35,7 @@ app.post('/api/submitRequest', async (req, res) => {
     const requestsCollection = db.collection('requests');
 
     try {
-        await requestsCollection.insertOne({ name, phone,contact, description,address, status: false });
+        await requestsCollection.insertOne({ name, phone,contact, description,address, status: false, createdAt: new Date() });
         res.status(201).json({ message: 'Заявка успешно создана' });
     } catch (error) {
         res.status(500).json({ error: error.message });
