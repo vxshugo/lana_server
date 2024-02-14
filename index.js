@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 3001;
-const mongoUrl = 'mongodb+srv://vxshugo:root@lanasupport.fm6ayhg.mongodb.net/?retryWrites=true&w=majority';
+const dotenv = require('dotenv');
+dotenv.config();
+const mongoUrl = `${process.env.DB_URL}`;
 const dbName = 'lanasupport';
 
 app.use(bodyParser.json());
